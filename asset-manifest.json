@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/caffiend/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/caffiend/static/js/main.d6d830c2.chunk.js",
+    "main.js.map": "/caffiend/static/js/main.d6d830c2.chunk.js.map",
+    "runtime-main.js": "/caffiend/static/js/runtime-main.5bf24d53.js",
+    "runtime-main.js.map": "/caffiend/static/js/runtime-main.5bf24d53.js.map",
+    "static/js/2.dcb8c7e4.chunk.js": "/caffiend/static/js/2.dcb8c7e4.chunk.js",
+    "static/js/2.dcb8c7e4.chunk.js.map": "/caffiend/static/js/2.dcb8c7e4.chunk.js.map",
+    "static/js/3.cc141a4a.chunk.js": "/caffiend/static/js/3.cc141a4a.chunk.js",
+    "static/js/3.cc141a4a.chunk.js.map": "/caffiend/static/js/3.cc141a4a.chunk.js.map",
+    "index.html": "/caffiend/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/caffiend/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.dcb8c7e4.chunk.js.LICENSE.txt": "/caffiend/static/js/2.dcb8c7e4.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/caffiend/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5bf24d53.js",
+    "static/js/2.dcb8c7e4.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.d6d830c2.chunk.js"
+  ]
+}
