@@ -15,10 +15,10 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         // TODO want value to to default value of 0
       },
-      balance: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
+    //   balance: {
+    //     type: DataTypes.DECIMAL,
+    //     allowNull: false,
+    // },
       
     });
   

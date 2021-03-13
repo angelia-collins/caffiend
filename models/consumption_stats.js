@@ -1,21 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Stats = sequelize.define("Stats", {
-    roast_type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    date_of_purchase: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
-    purchase_price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    purchase_weight: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
+  var Consumption_stats = sequelize.define("Consumption_stats", {
     date_of_consumption: {
       type: DataTypes.DATEONLY,
       allowNull: true,
@@ -24,6 +8,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
+    // TODO total_amount shout reffer to amount left in inventory (may need to make it into its own table)
     total_amount: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -38,5 +23,5 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  return Stats;
+  return Consumption_stats;
 };
