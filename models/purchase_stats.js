@@ -14,8 +14,8 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  Stats.associate = function (models) {
-    Stats.belongsTo(models.Coffee, {
+  Purchase_stats.associate = function (models) {
+    Purchase_stats.belongsTo(models.Coffee, {
       foreignKey: {
         allowNull: false,
       },
