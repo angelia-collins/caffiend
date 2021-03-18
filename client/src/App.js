@@ -7,7 +7,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import ExternalApi from "./pages/ExternalApi";
+import Budget from "./pages/Budget";
 import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
 
@@ -37,7 +37,7 @@ const App = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/profile" component={Profile} />
-            <Route path="/external-api" component={ExternalApi} />
+            <Route path="/budget" component={Budget} />
           </Switch>
         </Container>
         <Footer />
