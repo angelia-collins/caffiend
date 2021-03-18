@@ -6,8 +6,11 @@ import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import AddNew from "./pages/AddNew";
 import Profile from "./pages/Profile";
 import Budget from "./pages/Budget";
+import TodaysIntake from "./pages/TodaysIntake";
+import Inventory from "./pages/Inventory";
 import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
 
@@ -36,8 +39,11 @@ const App = () => {
         <Container className="flex-grow-1 mt-5">
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/add-new" component={AddNew} />
             <Route path="/budget" component={Budget} />
+            <Route path="/inventory" component={Inventory} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/todays-intake" component={TodaysIntake} />
           </Switch>
         </Container>
         <Footer />

@@ -9,7 +9,7 @@ export const ProfileComponent = () => {
 
   return (
     <Container className="mb-5">
-      <h1>Profile Stuffs</h1>
+      <h1>Profile</h1>
       <Row className="align-items-center profile-header mb-5 text-center text-md-left">
         <Col md={2}>
           <img

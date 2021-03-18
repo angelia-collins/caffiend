@@ -4,14 +4,14 @@ import { Container } from "reactstrap";
 import Loading from "../components/Loading";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
-export const BudgetComponent = () => {
+export const InventoryComponent = () => {
   return (
     <Container className="mb-5">
-      <h1>Monthly Budget</h1>
+      <h1>Inventory</h1>
     </Container>
   );
 };
 
-export default withAuthenticationRequired(BudgetComponent, {
+export default withAuthenticationRequired(InventoryComponent, {
   onRedirecting: () => <Loading />,
 });

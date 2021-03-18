@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -44,17 +43,31 @@ const NavBar = (props) => {
           <NavbarBrand>Caffiend</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink
-                  tag={NavLink}
-                  href="/"
-                  exact
-                  activeClassName="router-link-exact-active"
-                >
-                  Home
-                </NavLink>
-              </NavItem>
+            <Nav className="ml-auto" navbar>
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={NavLink}
+                    href="/todays-intake"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    Today's Intake
+                  </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={NavLink}
+                    href="/add-new"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    Add New
+                  </NavLink>
+                </NavItem>
+              )}
               {isAuthenticated && (
                 <NavItem>
                   <NavLink
@@ -64,6 +77,18 @@ const NavBar = (props) => {
                     activeClassName="router-link-exact-active"
                   >
                     Budget
+                  </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={NavLink}
+                    href="/inventory"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    Inventory
                   </NavLink>
                 </NavItem>
               )}
@@ -112,58 +137,6 @@ const NavBar = (props) => {
                 </UncontrolledDropdown>
               )}
             </Nav>
-            {!isAuthenticated && (
-              <Nav className="d-md-none" navbar>
-                <NavItem>
-                  <Button
-                    id="qsLoginBtn"
-                    color="primary"
-                    block
-                    onClick={() => loginWithRedirect({})}
-                  >
-                    Log in
-                  </Button>
-                </NavItem>
-              </Nav>
-            )}
-            {isAuthenticated && (
-              <Nav
-                className="d-md-none justify-content-between"
-                navbar
-                style={{ minHeight: 170 }}
-              >
-                <NavItem>
-                  <span className="user-info">
-                    <img
-                      src={user.picture}
-                      alt="Profile"
-                      className="nav-user-profile d-inline-block rounded-circle mr-3"
-                      width="50"
-                    />
-                    <h6 className="d-inline-block">{user.name}</h6>
-                  </span>
-                </NavItem>
-                <NavItem>
-                  <FontAwesomeIcon icon="user" className="mr-3" />
-                  <NavLink
-                    href="/profile"
-                    activeClassName="router-link-exact-active"
-                  >
-                    Profile
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <FontAwesomeIcon icon="power-off" className="mr-3" />
-                  <NavLink
-                    href="#"
-                    id="qsLogoutBtn"
-                    onClick={() => logoutWithRedirect()}
-                  >
-                    Log out
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            )}
           </Collapse>
         </Container>
       </Navbar>
@@ -172,44 +145,3 @@ const NavBar = (props) => {
 };
 
 export default NavBar;
-
-/*
-{isAuthenticated && (
-  <Nav
-    className="d-md-none justify-content-between"
-    navbar
-    style={{ minHeight: 170 }}
-  >
-    <NavItem>
-      <span className="user-info">
-        <img
-          src={user.picture}
-          alt="Profile"
-          className="nav-user-profile d-inline-block rounded-circle mr-3"
-          width="50"
-        />
-        <h6 className="d-inline-block">{user.name}</h6>
-      </span>
-    </NavItem>
-    <NavItem>
-      <FontAwesomeIcon icon="user" className="mr-3" />
-      <RouterNavLink
-        to="/profile"
-        activeClassName="router-link-exact-active"
-      >
-        Profile
-      </RouterNavLink>
-    </NavItem>
-    <NavItem>
-      <FontAwesomeIcon icon="power-off" className="mr-3" />
-      <RouterNavLink
-        to="#"
-        id="qsLogoutBtn"
-        onClick={() => logoutWithRedirect()}
-      >
-        Log out
-      </RouterNavLink>
-    </NavItem>
-  </Nav>
-)}
-*/
