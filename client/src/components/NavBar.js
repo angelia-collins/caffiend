@@ -40,7 +40,7 @@ const NavBar = (props) => {
     <div className="nav-container">
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand>Caffiend</NavbarBrand>
+          <NavbarBrand><img src="./assets/Caffiened-logo.png" alt="caffiend logo"/></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
