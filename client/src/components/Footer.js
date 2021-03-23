@@ -1,9 +1,10 @@
 import React from "react";
+import './Footer.css';
 
 const Footer = () => (
-  <footer className="bg-light p-3 text-center">
+  <footer className="text-center fixed-bottom">
     <p>
-      Caffiend © 2021
+      Caffiend ©2021
     </p>
   </footer>
 );

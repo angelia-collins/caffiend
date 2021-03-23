@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
 import Loading from "../components/Loading";
+import Header from '../components/Header';
+
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 export const ProfileComponent = () => {
@@ -9,7 +11,7 @@ export const ProfileComponent = () => {
 
   return (
     <Container className="mb-5">
-      <h1>Profile</h1>
+      <Header>Profile</Header>
       <Row className="align-items-center profile-header mb-5 text-center text-md-left">
         <Col md={2}>
           <img

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./NavBar.css";
 
 import {
   Button,
@@ -38,9 +39,9 @@ const NavBar = (props) => {
 
   return (
     <div className="nav-container">
-      <Navbar color="light" light expand="md">
+      <Navbar light expand="md" className="navPoop">
         <Container>
-          <NavbarBrand>Caffiend</NavbarBrand>
+          <NavbarBrand><img src="./assets/Caffiened-logo.png" alt="caffiend logo"/></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
