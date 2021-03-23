@@ -1,7 +1,5 @@
-.navbar-brand {
-    display: flex;
-    align-items: center;
-  }
-  .navbar-brand>img {
-    padding: 7px 14px;
-  }
+.navPoop {
+background-color: #f2e8da;
+font-family: 'Cormorant Garamond', serif;
+font-weight: bold;
+}
