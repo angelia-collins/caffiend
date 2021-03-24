@@ -6,11 +6,20 @@ import Header from '../components/Header';
 
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
+
 export const TodaysIntakeComponent = () => {
+
+  let newDate = new Date()
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
   return (
     <Container className="mb-5">
       <Header>Today's Intake</Header>
-    </Container>
+      <p>{month}/{date}/{year}</p>
+
+      </Container>
   );
 };
 
