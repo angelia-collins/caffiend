@@ -41,7 +41,7 @@ const NavBar = (props) => {
     <div className="nav-container">
       <Navbar light expand="md" className="navPoop">
         <Container>
-          <NavbarBrand><img src="./assets/Caffiened-logo.png" alt="caffiend logo"/></NavbarBrand>
+          <NavbarBrand><img src="../assets/Caffiened-logo.png" alt="caffiend logo"/></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
