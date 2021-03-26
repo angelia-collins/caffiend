@@ -50,7 +50,6 @@ const NavBar = (props) => {
             <Col>
             <NavbarToggler onClick={toggle} />
             </Col>
-            {/* <Row> */}
             <Col md={"7"} lg={"4"}>
             <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
