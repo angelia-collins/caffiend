@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "reactstrap";
 
 import Loading from "../components/Loading";
-import Header from '../components/Header';
+import Header from '../components/Header/Header.js';
 import CoffeeName from '../components/CoffeeName';
 import AmountInput from '../components/AmountInput';
 import AddButton from '../components/AddButton';

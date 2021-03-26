@@ -1,36 +1,18 @@
-import React, { useState } from 'react';
-import {
-    InputGroup,
-    InputGroupButtonDropdown,
-    Input,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
-   } from 'reactstrap';
-  
-  const PriceInput = (props) => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);  
-    const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
-  
-    return (
-        <div>
-          <InputGroup>
-            <Input />
-            <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
-              <DropdownToggle caret>
-USD              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </InputGroupButtonDropdown>
-          </InputGroup>
-          </div>
-          );
-}
+import React from "react";
+import { InputGroup, Input, InputGroupAddon, Button } from "reactstrap";
 
+const PriceInput = () => {
+  return (
+    <div>
+      <InputGroup>
+        <Input placeholder="purchased amount" />
+        <InputGroupAddon addonType="append">
+          <Button color="secondary">USD</Button>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  );
+};
 
 export default PriceInput;
+  
