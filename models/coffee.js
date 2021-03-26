@@ -9,18 +9,16 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
       },
   });
-
-  Coffee.associate = function (models) {
+  Coffee.associate = (models) => {
     Coffee.hasMany(models.Purchase_stats, {
       onDelete: "cascade",
     });
   };
-  Coffee.associate = function (models) {
+  Coffee.associate = (models) => {
     Coffee.hasMany(models.Consumption_stats, {
       onDelete: "cascade",
     });
   };
-
   return Coffee;
 };
 

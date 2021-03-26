@@ -14,14 +14,12 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
   });
-
-  Consumption_stats.associate = function (models) {
+  Consumption_stats.associate = (models) => {
     Consumption_stats.belongsTo(models.Coffee, {
       foreignKey: {
         allowNull: false,
       },
     });
   };
-
   return Consumption_stats;
 };
