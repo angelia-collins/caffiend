@@ -7,12 +7,12 @@ import Logo from "../../assets/Logos/devil-bean-cream.png";
 const Footer = () => (
     <Container className="themed-container footer text-center fixed-bottom" fluid={true}>
     <Row>
-      <Col xs={{size: 'auto'}}>
+      <Col>
       <img src={Logo} alt="caffiend logo" style={{height: "50px"}}/ >
       </Col>
     </Row>
     <Row>
-      <Col xs={{size: 'auto'}}>
+      <Col>
       &copy;{new Date().getFullYear()}{" "}
       </Col>
     </Row>

@@ -16,7 +16,7 @@ export const TodaysIntakeComponent = () => {
   let year = newDate.getFullYear();
 
   return (
-    <Container className="mb-5">
+    <Container>
       <Row>
         <Col>
           <Header>RECORD SERVING</Header>
@@ -30,20 +30,24 @@ export const TodaysIntakeComponent = () => {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <CoffeeName />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <AmountInput/>
+      <Row className="mt-4">
+        <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
+          <AmountInput />
         </Col>
       </Row>
-      <Row>
-        <Col>
+      <Row className="mt-4">
+        <Col
+          xs={{ size: 6, offset: 1 }}
+          sm={{ size: 3, offset: 3 }}
+          md={{ size: 2, offset: 4 }}
+        >
           <AddButton />
         </Col>
-        <Col>
+        <Col xs={"5"} sm={{ size: 2 }} md={{ size: 2 }}>
           <ResetButton />
         </Col>
       </Row>
