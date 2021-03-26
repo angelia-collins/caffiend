@@ -1,13 +1,22 @@
 import React from "react";
+import { Container, Row, Col } from "reactstrap";
+
 import './Footer.css';
-import Logo from "../../assets/Caffiened-logo.png";
+import Logo from "../../assets/Logos/devil-bean-cream.png";
 
 const Footer = () => (
-  <footer className="text-center fixed-bottom">
-    <p>
-    <img src={Logo} alt="caffiend logo"/> &copy;{new Date().getFullYear()}{" "}
-    </p>
-  </footer>
+    <Container className="themed-container footer text-center fixed-bottom" fluid={true}>
+    <Row>
+      <Col xs={{size: 'auto'}}>
+      <img src={Logo} alt="caffiend logo" style={{height: "50px"}}/ >
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={{size: 'auto'}}>
+      &copy;{new Date().getFullYear()}{" "}
+      </Col>
+    </Row>
+    </Container>
 );
 
 export default Footer;

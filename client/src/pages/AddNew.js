@@ -20,28 +20,28 @@ export const AddNewComponent = () => {
         </Col>
       </Row>
       <Row className="mt-4">
-        <Col className="col-md-8 offset-md-2">
+      <Col xs={{ size: 'auto'}} md={{ size: '8', offset: 2 }} >
           <CoffeeName />
         </Col>
       </Row>
       <Row className="mt-2">
-        <Col className="col-md-8 offset-md-2">
+      <Col xs={{ size: 'auto'}} md={{ size: '8', offset: 2 }} >
           <AmountInput />
         </Col>
       </Row>
       <Row className="mt-2">
-      <Col className="col-md-8 offset-md-2">
+      <Col xs={{ size: 'auto'}} md={{ size: '8', offset: 2 }} >
           <PriceInput />
         </Col>
       </Row>
-      <Row className="mt-2">
-        <Col className="col-md-3 offset-md-3">
+      {/* <Row className="mt-2">
+        <Col xs={{size: 'auto'}} md={{ size: 'auto', offset: 4 }}>
           <AddButton />
         </Col>
-        <Col className="col-md-3">
+        <Col xs={{size: 'auto'}} md={{ size: 'auto'}}>
           <ResetButton />
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   );
 };
