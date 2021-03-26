@@ -1,15 +1,19 @@
 import React from "react";
-import { Container } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 
 import Loading from "../components/Loading";
-import Header from '../components/Header/Header';
+import Header from "../components/Header/Header";
 
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 export const BudgetComponent = () => {
   return (
     <Container className="mb-5">
-      <Header>Monthly Budget</Header>
+      <Row>
+        <Col>
+        <Header>Monthly Budget</Header>
+        </Col>
+      </Row>
     </Container>
   );
 };
