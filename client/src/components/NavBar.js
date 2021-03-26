@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.css";
+import logo from '../assets/Caffiened-logo.png';
 
 import {
   Button,
@@ -41,7 +42,7 @@ const NavBar = (props) => {
     <div className="nav-container">
       <Navbar light expand="md" className="navPoop">
         <Container>
-          <NavbarBrand><img src="../assets/Caffiened-logo.png" alt="caffiend logo"/></NavbarBrand>
+          <NavbarBrand><img src={logo} alt="caffiend logo"/></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
