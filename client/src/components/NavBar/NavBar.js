@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.css";
-import Logo from "../assets/Caffiened-logo.png";
+import Logo from "../../assets/Caffiened-logo.png";
 
 import {
   Button,
@@ -54,7 +54,7 @@ const NavBar = (props) => {
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    Today's Intake
+                    CONSUME
                   </NavLink>
                 </NavItem>
               )}
@@ -66,7 +66,7 @@ const NavBar = (props) => {
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    Add New
+                    INVENTORY
                   </NavLink>
                 </NavItem>
               )}
@@ -78,19 +78,7 @@ const NavBar = (props) => {
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    Budget
-                  </NavLink>
-                </NavItem>
-              )}
-              {isAuthenticated && (
-                <NavItem>
-                  <NavLink
-                    tag={NavLink}
-                    href="/inventory"
-                    exact
-                    activeClassName="router-link-exact-active"
-                  >
-                    Inventory
+                    BUDGET
                   </NavLink>
                 </NavItem>
               )}

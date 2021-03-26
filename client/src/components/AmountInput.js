@@ -15,12 +15,12 @@ import {
     return (
         <div>
           <InputGroup>
-            <Input />
+            <Input placeholder="Amount Purchased"/>
             <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
               <DropdownToggle caret>
 oz              </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
+                <DropdownItem>Header</DropdownItem>
                 <DropdownItem disabled>Action</DropdownItem>
                 <DropdownItem>Another Action</DropdownItem>
                 <DropdownItem divider />
