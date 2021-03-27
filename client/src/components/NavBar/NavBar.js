@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.css";
-<<<<<<< HEAD:client/src/components/NavBar.js
-import logo from '../assets/Caffiened-logo.png';
-=======
 import Logo from "../../assets/Logos/Caffiened-logo.png";
->>>>>>> f93a49f415321b5b6bfeb0b38e86339226c72b03:client/src/components/NavBar/NavBar.js
 
 import {
   Button,
@@ -47,12 +43,6 @@ const NavBar = (props) => {
   return (
     <Container className="themed-container" fluid={"true"}>
       <Navbar light expand="md" className="navPoop">
-<<<<<<< HEAD:client/src/components/NavBar.js
-        <Container>
-          <NavbarBrand><img src={logo} alt="caffiend logo"/></NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-=======
           <Row>
             <Col lg={{offset: 2}}>
             <NavbarBrand><img src={Logo} alt="caffiend logo" style={{width: "200px"}}/></NavbarBrand>
@@ -62,7 +52,6 @@ const NavBar = (props) => {
             </Col>
             <Col md={"7"} lg={"4"}>
             <Collapse isOpen={isOpen} navbar>
->>>>>>> f93a49f415321b5b6bfeb0b38e86339226c72b03:client/src/components/NavBar/NavBar.js
             <Nav className="ml-auto" navbar>
               {isAuthenticated && (
                 <NavItem>
