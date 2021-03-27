@@ -26,8 +26,12 @@
   },
   "homepage": "https://github.com/angelia-collins/caffiend#readme",
   "dependencies": {
+<<<<<<< HEAD
     "concurrently": "^6.0.0",
     "d3": "^6.6.1",
+=======
+    "axios": "^0.21.1",
+>>>>>>> f93a49f415321b5b6bfeb0b38e86339226c72b03
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
