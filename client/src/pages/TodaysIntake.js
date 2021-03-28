@@ -45,7 +45,7 @@ export const TodaysIntakeComponent = () => {
           sm={{ size: 3, offset: 3 }}
           md={{ size: 2, offset: 4 }}
         >
-          <AddButton />
+          <AddButton text={"+ ADD"} />
         </Col>
         <Col xs={"5"} sm={{ size: 2 }} md={{ size: 2 }}>
           <ResetButton />

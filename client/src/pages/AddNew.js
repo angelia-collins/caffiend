@@ -26,7 +26,7 @@ export const AddNewComponent = () => {
       </Row>
       <Row className="mt-2">
       <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
-          <AmountInput />
+          <AmountInput placeholder={"Coffee Brand"} />
         </Col>
       </Row>
       <Row className="mt-2">
@@ -36,7 +36,7 @@ export const AddNewComponent = () => {
       </Row>
       <Row className="mt-2">
         <Col xs={{ size: 6, offset: 1 }} sm={{ size: 3, offset: 3 }} md={{ size: 2, offset: 4 }}>
-          <AddButton />
+          <AddButton text={"+ ADD"}/>
         </Col>
         <Col xs={"5"} sm={{ size: 2}} md={{ size: 2}}>
           <ResetButton />
