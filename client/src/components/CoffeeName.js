@@ -1,40 +1,17 @@
-import React, { useState } from 'react';
-import {
-    InputGroup,
-    InputGroupButtonDropdown,
-    Input,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
-   } from 'reactstrap';
-  
-  const CoffeeName = (props) => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    // const [splitButtonOpen, setSplitButtonOpen] = useState(false);
-  
-    const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
-  
-    // const toggleSplit = () => setSplitButtonOpen(!splitButtonOpen);
+import React from "react";
+import { InputGroup, Input } from "reactstrap";
 
-    return (
-        <div>
-          <InputGroup>
-            <Input placeholder="Coffee Brand" />
-            <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
-              <DropdownToggle caret>
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
-              </DropdownMenu>
-            </InputGroupButtonDropdown>
-          </InputGroup>
-          </div>
-          );
-}
-
+const CoffeeName = (props) => {
+  return (
+    <div>
+      <InputGroup> {}
+        {/* <Input placeholder="coffee brand"/> */}
+        <Input type="select">
+          <option>coffee brand</option>
+        </Input>
+      </InputGroup>
+    </div>
+  );
+};
 
 export default CoffeeName;

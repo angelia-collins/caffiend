@@ -18,8 +18,8 @@ import {
   DropdownMenu,
   DropdownItem,
   Col,
-  Row
-} from 'reactstrap';
+  Row,
+} from "reactstrap";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -28,13 +28,8 @@ const NavBar = (props) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  const {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
-  
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   const logoutWithRedirect = () =>
     logout({
       returnTo: window.location.origin,
@@ -43,102 +38,138 @@ const NavBar = (props) => {
   return (
     <Container className="themed-container" fluid={"true"}>
       <Navbar light expand="md" className="navPoop">
-          <Row>
-            <Col lg={{offset: 2}}>
-            <NavbarBrand><img src={Logo} alt="caffiend logo" style={{width: "200px"}}/></NavbarBrand>
-            </Col>
-            <Col>
+        <Row>
+          <Col lg={{ offset: 2 }}>
+            <NavbarBrand>
+              <img src={Logo} alt="caffiend logo" style={{ width: "200px" }} />
+            </NavbarBrand>
+          </Col>
+          <Col>
             <NavbarToggler onClick={toggle} />
-            </Col>
-            <Col md={"7"} lg={"4"}>
+          </Col>
+          <Col md={"6"} lg={"3"}>
             <Collapse isOpen={isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              {isAuthenticated && (
-                <NavItem>
-                  <NavLink
-                    tag={NavLink}
-                    href="/todays-intake"
-                    exact
-                    activeClassName="router-link-exact-active"
-                  >
-                    CONSUME
-                  </NavLink>
-                </NavItem>
-              )}
-              {isAuthenticated && (
-                <NavItem>
-                  <NavLink
-                    tag={NavLink}
-                    href="/add-new"
-                    exact
-                    activeClassName="router-link-exact-active"
-                  >
-                    INVENTORY
-                  </NavLink>
-                </NavItem>
-              )}
-              {isAuthenticated && (
-                <NavItem>
-                  <NavLink
-                    tag={NavLink}
-                    href="/budget"
-                    exact
-                    activeClassName="router-link-exact-active"
-                  >
-                    BUDGET
-                  </NavLink>
-                </NavItem>
-              )}
-            </Nav>
-            <Nav className="d-none d-md-block" navbar>
-              {!isAuthenticated && (
-                <NavItem>
-                  <Button
-                    id="qsLoginBtn"
-                    color="primary"
-                    className="btn-margin"
-                    onClick={() => loginWithRedirect()}
-                  >
-                    Log in
-                  </Button>
-                </NavItem>
-              )}
-              {isAuthenticated && (
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret id="profileDropDown">
-                    <img
-                      src={user.picture}
-                      alt="Profile"
-                      className="nav-user-profile rounded-circle"
-                      width="50"
-                    />
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem header>{user.name}</DropdownItem>
-                    <DropdownItem
+              <Nav className="ml-5" navbar>
+                {isAuthenticated && (
+                  <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav >
+                      log
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      <DropdownItem
+                        tag={NavLink}
+                        href="/todays-intake"
+                        className="text-center"
+                      >
+                        consumption
+                      </DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem
+                        tag={NavLink}
+                        href="/add-new"
+                        className="text-center"
+                      >
+                        inventory
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                )}
+                {isAuthenticated && (
+                  <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav >
+                      view
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      <DropdownItem
+                        tag={NavLink}
+                        href="/consumption-report"
+                        className="text-center"
+                      >
+                        consumption report
+                      </DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem
+                        tag={NavLink}
+                        href="/inventory-report"
+                        className="text-center"
+                      >
+                        inventory report
+                      </DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem
+                        tag={NavLink}
+                        href="/budget-report"
+                        className="text-center"
+                      >
+                        budget report
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                )}
+                {isAuthenticated && (
+                  <NavItem>
+                    <NavLink
                       tag={NavLink}
-                      href="/profile"
-                      className="dropdown-profile"
+                      href="/settings"
+                      exact
                       activeClassName="router-link-exact-active"
                     >
-                      <FontAwesomeIcon icon="user" className="mr-3" /> Profile
-                    </DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem
-                      id="qsLogoutBtn"
-                      onClick={() => logoutWithRedirect()}
+                      settings
+                    </NavLink>
+                  </NavItem>
+                )}
+              </Nav>
+              <Nav className="d-none d-md-block" navbar>
+                {!isAuthenticated && (
+                  <NavItem>
+                    <Button
+                      id="qsLoginBtn"
+                      color="primary"
+                      className="btn-margin"
+                      onClick={() => loginWithRedirect()}
                     >
-                      <FontAwesomeIcon icon="power-off" className="mr-3" /> Log out
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              )}
-            </Nav>
-          </Collapse>
-            </Col>
-            </Row>
+                      Log in
+                    </Button>
+                  </NavItem>
+                )}
+
+                {isAuthenticated && (
+                  <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret id="profileDropDown">
+                      <img
+                        src={user.picture}
+                        alt="Profile"
+                        className="nav-user-profile rounded-circle"
+                        width="50"
+                      />
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      <DropdownItem header>{user.name}</DropdownItem>
+                      <DropdownItem
+                        tag={NavLink}
+                        href="/profile"
+                        className="dropdown-profile"
+                        activeClassName="router-link-exact-active"
+                      >
+                        <FontAwesomeIcon icon="user" className="mr-3" /> Profile
+                      </DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem
+                        id="qsLogoutBtn"
+                        onClick={() => logoutWithRedirect()}
+                      >
+                        <FontAwesomeIcon icon="power-off" className="mr-3" />{" "}
+                        Log out
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                )}
+              </Nav>
+            </Collapse>
+          </Col>
+        </Row>
       </Navbar>
-      </Container>
+    </Container>
   );
 };
 
