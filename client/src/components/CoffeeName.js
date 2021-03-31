@@ -19,10 +19,9 @@ import {
     return (
         <div>
           <InputGroup>
-            <Input />
+            <Input placeholder="Coffee Brand" />
             <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
               <DropdownToggle caret>
-                {/* Previous */}
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem header>Header</DropdownItem>

@@ -3,8 +3,8 @@ import { Router, Route, Switch } from "react-router-dom";
 import { Container } from "reactstrap";
 
 import Loading from "./components/Loading";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer.js";
 import Home from "./pages/Home";
 import AddNew from "./pages/AddNew";
 import Profile from "./pages/Profile";

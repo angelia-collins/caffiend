@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.css";
-import logo from '../assets/Caffiened-logo.png';
+import Logo from "../../assets/Logos/Caffiened-logo.png";
 
 import {
   Button,
@@ -16,7 +16,9 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Col,
+  Row
 } from 'reactstrap';
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -39,12 +41,17 @@ const NavBar = (props) => {
     });
 
   return (
-    <div className="nav-container">
+    <Container className="themed-container" fluid={"true"}>
       <Navbar light expand="md" className="navPoop">
-        <Container>
-          <NavbarBrand><img src={logo} alt="caffiend logo"/></NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+          <Row>
+            <Col lg={{offset: 2}}>
+            <NavbarBrand><img src={Logo} alt="caffiend logo" style={{width: "200px"}}/></NavbarBrand>
+            </Col>
+            <Col>
+            <NavbarToggler onClick={toggle} />
+            </Col>
+            <Col md={"7"} lg={"4"}>
+            <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {isAuthenticated && (
                 <NavItem>
@@ -54,7 +61,7 @@ const NavBar = (props) => {
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    Today's Intake
+                    CONSUME
                   </NavLink>
                 </NavItem>
               )}
@@ -66,7 +73,7 @@ const NavBar = (props) => {
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    Add New
+                    INVENTORY
                   </NavLink>
                 </NavItem>
               )}
@@ -78,19 +85,7 @@ const NavBar = (props) => {
                     exact
                     activeClassName="router-link-exact-active"
                   >
-                    Budget
-                  </NavLink>
-                </NavItem>
-              )}
-              {isAuthenticated && (
-                <NavItem>
-                  <NavLink
-                    tag={NavLink}
-                    href="/inventory"
-                    exact
-                    activeClassName="router-link-exact-active"
-                  >
-                    Inventory
+                    BUDGET
                   </NavLink>
                 </NavItem>
               )}
@@ -140,9 +135,10 @@ const NavBar = (props) => {
               )}
             </Nav>
           </Collapse>
-        </Container>
+            </Col>
+            </Row>
       </Navbar>
-    </div>
+      </Container>
   );
 };
 
