@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import Loading from "../components/Loading";
-import Header from "../components/Header/Header";
+import Header from '../components/Header/Header';
+import BarChart from '../components/BarChart';
 
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
