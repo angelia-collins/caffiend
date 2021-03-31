@@ -1,14 +1,13 @@
 import React from "react";
 import { ButtonToggle } from "reactstrap";
 
-class AddButton extends React.Component {
-  render() {
-    return (
-      <div>
-        <ButtonToggle color="primary">+ Add</ButtonToggle>{' '}
-        </div>
-    );
-  }
-}
+const AddButton = (props) => {
+  return (
+    <ButtonToggle style={{ backgroundColor: "#210202" }}>
+      {" "}
+      {props.text}{" "}
+    </ButtonToggle>
+  );
+};
 
 export default AddButton;
