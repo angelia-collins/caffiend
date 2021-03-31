@@ -5,20 +5,7 @@ import Header from "../components/Header/Header";
 
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
-<<<<<<< HEAD:client/src/pages/Budget.js
-// class App extends React.Component {
-  
-//   state = {
-//     data: [12, 5, 6, 6, 9, 10],
-//     width: 700,
-//     height: 500,
-//     // id: root
-//   }}
-
-export const BudgetComponent = () => {
-=======
 export const AppendBudgetReport = () => {
->>>>>>> 7ab8cce80edf3d824f4f487100888855f76aebf7:client/src/pages/InventoryReport.js
   return (
     <Container>
       <Row>
