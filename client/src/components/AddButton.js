@@ -4,7 +4,9 @@ import { ButtonToggle } from "reactstrap";
 function AddButton(props) {
   return (
     <div>
-      <ButtonToggle color="primary" onClick={ props.handleBtnClick }>+ Add</ButtonToggle>{' '}
+      <ButtonToggle style={{ backgroundColor: "#210202" }} color="primary" onClick={ props.handleBtnClick }>
+        {" "}{props.text}{" "}
+      </ButtonToggle>{' '}
     </div>
   );
 }

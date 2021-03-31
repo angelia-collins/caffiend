@@ -37,5 +37,4 @@ import {
           );
 }
 
-
 export default CoffeeName;

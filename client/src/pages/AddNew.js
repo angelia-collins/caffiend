@@ -74,7 +74,7 @@ export const AddNewComponent = () => {
       </Row>
       <Row className="mt-2">
         <Col xs={{ size: 6, offset: 1 }} sm={{ size: 3, offset: 3 }} md={{ size: 2, offset: 4 }}>
-          <AddButton handleBtnClick={ handleBtnClick } />
+          <AddButton text={"+ ADD"} handleBtnClick={ handleBtnClick } />
         </Col>
         <Col xs={"5"} sm={{ size: 2}} md={{ size: 2}}>
           <ResetButton />

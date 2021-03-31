@@ -7,7 +7,7 @@ const PriceInput = (props) => {
       <InputGroup>
         <Input placeholder="Purchased amount" onChange={ (e) => props.handlePrice(e.target.value) }/>
         <InputGroupAddon addonType="append">
-          <Button color="secondary">USD</Button>
+          <Button style={{backgroundColor: "#f2e8da", color: "#210202", width: "100px"}}>USD</Button>
         </InputGroupAddon>
       </InputGroup>
     </div>
