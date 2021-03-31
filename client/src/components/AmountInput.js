@@ -15,7 +15,7 @@ import {
     return (
         <div>
           <InputGroup>
-            <Input placeholder="Amount Purchased"/>
+            <Input placeholder="Amount Purchased" onChange={ (e) => props.handleAmt(e.target.value) }/>
             <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
               <DropdownToggle caret>
 oz              </DropdownToggle>
