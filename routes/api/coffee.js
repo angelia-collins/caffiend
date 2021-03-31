@@ -3,16 +3,19 @@ const db = require("../../models");
 
 // Matches with "/api/inventory"
 /*
-router.route("/")
-  .get((req, res) => {
-    db.Coffee.findAll({
-      include: [db.Consumption_stats, db.Purchase_stats],
-    }).then((dbInventory) => {
-      res.json(dbInventory);
-    }).catch(err =>
-      res.status(422).json(req, res, err))
+  app.post("/api/authors", function(req, res) {
+    db.Author.create(req.body).then(function(dbAuthor) {
+      res.json(dbAuthor);
+    });
   });
+
 */
+router.post('/', (req, res) => {
+  db.Coffee.create(req.body).then((dbInventory) => {
+      res.json(dbInventory);
+    })
+});
+
 
 router.get('/', (req, res) => {
     db.Coffee.findAll({

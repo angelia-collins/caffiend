@@ -31,23 +31,22 @@ export const AddNewComponent = () => {
 
   const handleBtnClick = event => {
     // console.log(coffeeName, amt, price);
-    API.getInventory()
+    /*
+    API.saveInventory()
       .then(res => 
         console.log(res)
       )
       .catch(err => console.log(err));
-
-    /*
+    */
+    
         if (coffeeName && amt && price) {
-          API.saveCoffee({
-            title: coffeeName,
-            author: amt,
-            synopsis: price
+          API.saveInventory({
+            brand: coffeeName
           })
             .then(res => console.log(res))
             .catch(err => console.log(err));
         }
-    */
+    
   };
 
   return (

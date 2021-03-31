@@ -5,8 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
     roast_type: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.STRING
       },
   });
   Coffee.associate = (models) => {

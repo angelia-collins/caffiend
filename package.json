@@ -27,6 +27,7 @@
   "homepage": "https://github.com/angelia-collins/caffiend#readme",
   "dependencies": {
     "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
     "d3": "^6.6.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
