@@ -5,8 +5,9 @@ const express = require("express");
 const routes = require("./routes");
 
 // Sets up the Express App
-const app = express();
-let PORT = process.env.PORT || 8080;
+// =============================================================
+var app = express();
+var PORT = process.env.DB_PORT || 8080;
 
 // Requiring our models for syncing
 const db = require("./models");
@@ -15,12 +16,17 @@ const db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // Static directory
 app.use(express.static("public"));
 
 // Routes
 app.use(routes);
-require("./routes/api-routes.js")(app);
+// require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(() => {

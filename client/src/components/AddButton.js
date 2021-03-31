@@ -1,13 +1,14 @@
 import React from "react";
 import { ButtonToggle } from "reactstrap";
 
-const AddButton = (props) => {
+function AddButton(props) {
   return (
-    <ButtonToggle style={{ backgroundColor: "#210202" }}>
-      {" "}
-      {props.text}{" "}
-    </ButtonToggle>
+    <div>
+      <ButtonToggle style={{ backgroundColor: "#210202" }} color="primary" onClick={ props.handleBtnClick }>
+        {" "}{props.text}{" "}
+      </ButtonToggle>{' '}
+    </div>
   );
-};
+}
 
 export default AddButton;
