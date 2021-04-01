@@ -31,6 +31,7 @@ export const AddNewComponent = () => {
 
   const handleBtnClick = event => {
     // console.log(coffeeName, amt, price);
+    
     /*
     API.saveInventory()
       .then(res => 
@@ -39,14 +40,15 @@ export const AddNewComponent = () => {
       .catch(err => console.log(err));
     */
     
-        if (coffeeName && amt && price) {
-          API.saveInventory({
-            brand: coffeeName
-          })
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-        }
-    
+    if (coffeeName && amt && price) {
+      API.saveInventory({
+        brand: coffeeName,
+        purchase_weight: amt,
+        purchase_price: price
+      })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
   };
 
   return (
@@ -63,7 +65,7 @@ export const AddNewComponent = () => {
       </Row>
       <Row className="mt-2">
       <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
-          <AmountInput handleAmt= { handleAmt }/>
+          <AmountInput filler="Weight" handleAmt= { handleAmt }/>
         </Col>
       </Row>
       <Row className="mt-2">

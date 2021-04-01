@@ -9,13 +9,14 @@ import {
    } from 'reactstrap';
   
   const AmountInput = (props) => {
+    const [amt, setAmt] = useState();
     const [dropdownOpen, setDropdownOpen] = useState(false);  
     const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
   
     return (
         <div>
           <InputGroup>
-            <Input placeholder="Amount Purchased" onChange={ (e) => props.handleAmt(e.target.value) }/>
+            <Input placeholder={ props.filler } onChange={ (e) => props.handleAmt(e.target.value) } value={ amt } />
             <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
               <DropdownToggle style={{backgroundColor: "#f2e8da", color: "#210202", width:"100px"}} caret>
 oz              </DropdownToggle>

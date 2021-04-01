@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
     db.Coffee.findAll({
-        //include: [db.Consumption_stats, db.Purchase_stats],
+        include: [db.Consumption_stats, db.Purchase_stats],
       }).then((dbInventory) => {
         res.json(dbInventory);
       })
