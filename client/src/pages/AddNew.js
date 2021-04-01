@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Fade } from "reactstrap";
 import Loading from "../components/Loading";
 import Header from "../components/Header/Header";
 import CoffeeName from "../components/CoffeeName";
@@ -17,6 +17,8 @@ export const AddNewComponent = () => {
   const [amt, setAmt] = useState(0);
   const [price, setPrice] = useState(0);
 
+  const [fadeIn, setFadeIn] = useState(false);
+
   const handleName = event => {
     setCoffeeName(event);
   };
@@ -32,21 +34,16 @@ export const AddNewComponent = () => {
   const handleBtnClick = event => {
     // console.log(coffeeName, amt, price);
     
-    /*
-    API.saveInventory()
-      .then(res => 
-        console.log(res)
-      )
-      .catch(err => console.log(err));
-    */
-    
     if (coffeeName && amt && price) {
       API.saveInventory({
         brand: coffeeName,
         purchase_weight: amt,
         purchase_price: price
       })
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res);
+          setFadeIn(!fadeIn);
+        })
         .catch(err => console.log(err));
     }
   };
@@ -79,6 +76,13 @@ export const AddNewComponent = () => {
         </Col>
         <Col xs={"5"} sm={{ size: 2}} md={{ size: 2}}>
           <ResetButton />
+        </Col>
+      </Row>
+      <Row className="mt-2">
+        <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
+          <Fade in={fadeIn} tag="h6" className="mt-3 text-center">
+             Success!
+          </Fade>
         </Col>
       </Row>
     </Container>

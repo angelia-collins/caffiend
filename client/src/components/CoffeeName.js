@@ -3,6 +3,7 @@ import {
     InputGroup,
     InputGroupButtonDropdown,
     Input,
+    Dropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem
@@ -25,11 +26,12 @@ import {
               <DropdownToggle caret>
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem header>Starbucks</DropdownItem>
-                <DropdownItem disabled>Action</DropdownItem>
-                <DropdownItem>Another Action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Another Action</DropdownItem>
+                <DropdownItem>Kicking Horse</DropdownItem>
+                {
+                  props.coffees.map(c =>
+                    <DropdownItem>{c}</DropdownItem>
+                  )
+                }
               </DropdownMenu>
             </InputGroupButtonDropdown>
           </InputGroup>
