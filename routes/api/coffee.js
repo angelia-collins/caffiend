@@ -3,13 +3,30 @@ const db = require("../../models");
 
 // Matches with "/api/inventory"
 /*
-  app.post("/api/authors", function(req, res) {
-    db.Author.create(req.body).then(function(dbAuthor) {
-      res.json(dbAuthor);
+app.put("/api/posts", function(req, res) {
+    db.Post.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+      res.json(dbPost);
     });
   });
 
+
 */
+router.put('/', (req, res) => {
+  db.Coffee.update(req.body, {
+    where: {
+      brand: req.body.brand
+    }
+  }).then((dbInventory) => {
+      res.json(dbInventory);
+    })
+});
+
 router.post('/', (req, res) => {
   db.Coffee.create(req.body).then((dbInventory) => {
       res.json(dbInventory);

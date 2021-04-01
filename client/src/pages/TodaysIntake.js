@@ -26,9 +26,11 @@ export const TodaysIntakeComponent = () => {
     console.log(event);
     setCoffeeName(event);
     var found = inventory.find(function(c) {
-      return c.brand === event;
+      if(c.brand === event) {
+        return true;
+      }
     });
-    if (found) { setSelectedCoffee(found) }
+    if (found) {setSelectedCoffee(found)}
     console.log(found);
   };
 
@@ -50,8 +52,31 @@ export const TodaysIntakeComponent = () => {
       .catch(err => console.log(err));
   }, []);
 
+  const updateCoffees = e => {
+    API.getInventory()
+    .then(res => {
+      let arr = [];
+      for (var i = 0; i < res.data.length; i++) {
+        arr.push(res.data[i].brand);
+      }
+      setBrands(arr);
+      setInventory(res.data);
+    })
+    .catch(err => console.log(err));
+  };
+
   const handleAdd = event => {
-    console.log(coffeeName, amt);
+    var newWeight = selectedCoffee.purchase_weight - amt;
+    if (coffeeName && amt) {
+      API.updateInventory({
+        brand: coffeeName,
+        purchase_weight: newWeight
+      })
+        .then(res => {
+          updateCoffees();
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   const [fadeIn, setFadeIn] = useState(false);
@@ -79,7 +104,7 @@ export const TodaysIntakeComponent = () => {
         <Row className="mt-2">
           <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
             <p className="text-center">
-            There is { selectedCoffee.purchase_weight } oz. left of { coffeeName }.
+            There is <b>{ selectedCoffee.purchase_weight }</b> oz. left of { coffeeName }.
             </p>
           </Col>
         </Row>

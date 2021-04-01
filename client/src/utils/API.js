@@ -8,6 +8,10 @@ export default {
   // Saves coffee info to the database
   saveInventory: function(coffeeData) {
     return axios.post("http://localhost:8080/api/inventory", coffeeData);
+  },
+
+  updateInventory: function(coffeeData) {
+    return axios.put("http://localhost:8080/api/inventory", coffeeData);
   }
 
 };
