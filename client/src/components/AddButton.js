@@ -2,15 +2,14 @@ import React from "react";
 import { Button } from "reactstrap";
 
 
-const AddButton = (props) => {
-
-
-
+function AddButton(props) {
   return (
-    <Button style={{ backgroundColor: "#210202" }}>
-      {props.text}
-    </Button>
+    <div>
+      <Button style={{ backgroundColor: "#210202" }} color="primary" onClick={ props.handleBtnClick }>
+        {" "}{props.text}{" "}
+      </Button>{' '}
+    </div>
   );
-};
+}
 
 export default AddButton;

@@ -7,7 +7,7 @@ const SelectUnitInput = () => {
     <div>
       <Label style={{ fontSize: "16px" }}> currency: </Label>
       <Input type="select" name="select" id="exampleSelect">
-        <option select disabled>usd</option>
+        <option selected disabled>usd</option>
       </Input>
     </div>
   );

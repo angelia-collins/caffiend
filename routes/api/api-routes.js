@@ -1,5 +1,10 @@
+<<<<<<< HEAD:routes/api-routes.js
 
 const db = require("../../models");
+=======
+const db = require("../models");
+const router = require("express").Router();
+>>>>>>> 73138e27dc23ab06e4802f41fededdf43f8a9f04:routes/api/api-routes.js
 
 module.exports = function (app) {
   //  BUDGET ROUTES

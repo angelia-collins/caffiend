@@ -1,7 +1,7 @@
 import React from "react";
-import { InputGroup, Input, InputGroupAddon, Button, Label } from "reactstrap";
+import { InputGroup, Input, Label } from "reactstrap";
 
-const PriceInput = () => {
+const PriceInput = (props) => {
   return (
     <div>
       <Label style={{ fontSize: "16px" }}> price: </Label>
