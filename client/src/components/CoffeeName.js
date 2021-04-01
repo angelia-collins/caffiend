@@ -3,37 +3,44 @@ import {
     InputGroup,
     InputGroupButtonDropdown,
     Input,
-    Dropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,
+    FormGroup,
+    Label
    } from 'reactstrap';
   
   const CoffeeName = (props) => {
-    // const [name, setName] = useState('');
+    const [name, setName] = useState('');
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    // const [splitButtonOpen, setSplitButtonOpen] = useState(false);
   
     const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
-  
-    // const toggleSplit = () => setSplitButtonOpen(!splitButtonOpen);
+
+    const handleChange = event => {
+      console.log(event);
+      //setName(event);
+      //setName(event);
+    }
 
     return (
         <div>
           <InputGroup>
-            <Input placeholder="Coffee Brand" onChange={ (e) => props.handleName(e.target.value) } />
-            <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
-              <DropdownToggle caret>
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>Kicking Horse</DropdownItem>
-                {
-                  props.coffees.map(c =>
-                    <DropdownItem>{c}</DropdownItem>
-                  )
-                }
-              </DropdownMenu>
-            </InputGroupButtonDropdown>
+            { (props.from==="inventory") && (
+              <Input placeholder="Coffee Brand" onChange={ (e) => props.handleName(e.target.value) }/>)
+            }
+            { (props.from==="intake") && (
+              <FormGroup>
+                <Input type="select" name="select" id="selectBrand" onChange={ (e) => props.handleName(e.target.value) }>
+                  <option>Select Coffee Brand...</option>
+                  {
+                    props.coffees.map(c =>
+                      <option key={c} value={c} onClick={ e => handleChange(e) }>{c}</option>
+                    )
+                  }
+                </Input>
+              </FormGroup>
+              )
+            }
           </InputGroup>
           </div>
           );

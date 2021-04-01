@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Fade } from "reactstrap";
 import Loading from "../components/Loading";
 import Header from "../components/Header/Header.js";
 import CoffeeName from "../components/CoffeeName";
 import AmountInput from "../components/AmountInput";
 import AddButton from "../components/AddButton";
-import ResetButton from "../components/ResetButton";
+// import ResetButton from "../components/ResetButton";
 import API from "../utils/API";
 
 import { withAuthenticationRequired } from "@auth0/auth0-react";
@@ -19,13 +19,22 @@ export const TodaysIntakeComponent = () => {
   const [coffeeName, setCoffeeName] = useState('');
   const [amt, setAmt] = useState(0);
   const [brands, setBrands] = useState([]);
+  const [inventory, setInventory] = useState([]);
+  const [selectedCoffee, setSelectedCoffee] = useState({});
 
   const handleName = event => {
+    console.log(event);
     setCoffeeName(event);
+    var found = inventory.find(function(c) {
+      return c.brand === event;
+    });
+    if (found) { setSelectedCoffee(found) }
+    console.log(found);
   };
 
   const handleAmt = event => {
     setAmt(event);
+
   };
 
   useEffect(() => {
@@ -36,13 +45,16 @@ export const TodaysIntakeComponent = () => {
           arr.push(res.data[i].brand);
         }
         setBrands(arr);
-        console.log(arr);
+        setInventory(res.data);
       })
       .catch(err => console.log(err));
   }, []);
 
-  const handleBtnClick = event => {
+  const handleAdd = event => {
+    console.log(coffeeName, amt);
   };
+
+  const [fadeIn, setFadeIn] = useState(false);
 
   return (
     <Container>
@@ -58,11 +70,20 @@ export const TodaysIntakeComponent = () => {
           </p>
         </Col>
       </Row>
-      <Row>
+      <Row className="justify-content-center">
         <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
-          <CoffeeName handleName = { handleName }  coffees={ brands }/>
+          <CoffeeName from="intake" handleName = { handleName }  coffees={ brands } />
         </Col>
       </Row>
+      {selectedCoffee && (
+        <Row className="mt-2">
+          <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
+            <p className="text-center">
+            There is { selectedCoffee.purchase_weight } oz. left of { coffeeName }.
+            </p>
+          </Col>
+        </Row>
+      )}
       <Row className="mt-4">
         <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <AmountInput filler="Amount Consumed" handleAmt= { handleAmt } />
@@ -74,9 +95,8 @@ export const TodaysIntakeComponent = () => {
           sm={{ size: 4, offset: 4 }}
           md={{ size: 2, offset: 5 }}
         >
-          <AddButton text={"+ ADD"} handleBtnClick={ handleBtnClick } />
+          <AddButton text={"+ ADD"} handleBtnClick={ handleAdd } />
         </Col>
-        
       </Row>
     </Container>
   );

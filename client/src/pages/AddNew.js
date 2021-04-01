@@ -57,7 +57,7 @@ export const AddNewComponent = () => {
       </Row>
       <Row className="mt-4">
       <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }} >
-          <CoffeeName handleName= { handleName } />
+          <CoffeeName from="inventory" handleName= { handleName } />
         </Col>
       </Row>
       <Row className="mt-2">
