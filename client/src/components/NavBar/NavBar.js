@@ -24,15 +24,22 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  const logoutWithRedirect = () =>
+  const checkAuth = () => {
+    //
+  };
+
+  const logoutWithRedirect = () => {
     logout({
       returnTo: window.location.origin,
     });
+    setIsAuth(false);
+  };
 
   return (
     <Container className="themed-container" fluid={"true"}>

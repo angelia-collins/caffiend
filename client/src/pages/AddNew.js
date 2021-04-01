@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Row, Col, Button, Label } from "reactstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Fade } from "reactstrap";
 import Loading from "../components/Loading";
 import Header from "../components/Header/Header";
 import CoffeeName from "../components/CoffeeName";
@@ -14,28 +14,40 @@ import Axios from "axios";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 export const AddNewComponent = () => {
-  // const postToInventory = (e) => {
-  //   e.preventDefault();
-  //   Axios.post('/inventory', {
-  //     brand: '',
-  //     lastName: '',
-  //     purchase_weight: '',
-  //     purchase_price:  '',
-  //   })
-  //   .then((response) => {
-  //     console.log(response);
-  //   }, (error) => {
-  //     console.log(error);
-  //   });
-  // };
+  const [coffeeName, setCoffeeName] = useState('');
+  const [amt, setAmt] = useState(0);
+  const [price, setPrice] = useState(0);
 
-  // function postToInventory(e) {
-  //   e.preventDefault();
-  //   let total = $('#total').val();
-  //   $.ajax({
-  //     method: "Post",
-  //     url: `/api/inventory/${total}`,
-  //   })
+  const [fadeIn, setFadeIn] = useState(false);
+
+  const handleName = event => {
+    setCoffeeName(event);
+  };
+
+  const handleAmt = event => {
+    setAmt(event);
+  };
+
+  const handlePrice = event => {
+    setPrice(event);
+  };
+
+  const handleBtnClick = event => {
+    // console.log(coffeeName, amt, price);
+    
+    if (coffeeName && amt && price) {
+      API.saveInventory({
+        brand: coffeeName,
+        purchase_weight: amt,
+        purchase_price: price
+      })
+        .then(res => {
+          console.log(res);
+          setFadeIn(!fadeIn);
+        })
+        .catch(err => console.log(err));
+    }
+  };
 
   return (
     <Container>
@@ -44,31 +56,14 @@ export const AddNewComponent = () => {
           <Header>stock inventory</Header>
         </Col>
       </Row>
-      <Row>
-        <Col
-          sm={{ size: 5, offset: 1 }}
-          md={{ size: 6, offset: 2 }}
-        >
-          <CoffeeName />
-        </Col>
-        <Col sm={"4"} md={"2"}>
-          <RoastInput />
+      <Row className="mt-4">
+      <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }} >
+          <CoffeeName from="inventory" handleName= { handleName } />
         </Col>
       </Row>
-      <Row>
-        <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
-          
-        </Col>
-      </Row>
-      <Row>
-        <Col
-          sm={{ size: 5, offset: 1 }}
-          md={{ size: 6, offset: 2 }}
-        >
-        <AmountPurchasedInput />
-        </Col>
-        <Col sm={"4"} md={"2"}>
-          <SelectUnitInput />
+      <Row className="mt-2">
+      <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
+          <AmountInput filler="Weight" handleAmt= { handleAmt }/>
         </Col>
       </Row>
       <Row>
@@ -97,6 +92,13 @@ export const AddNewComponent = () => {
           <ResetButton  />
         </Col>
       </Row>
+      <Row className="mt-2">
+        <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
+          <Fade in={fadeIn} tag="h6" className="mt-3 text-center">
+             Success!
+          </Fade>
+        </Col>
+      </Row>
     </Container>
   );
 };
@@ -104,3 +106,33 @@ export const AddNewComponent = () => {
 export default withAuthenticationRequired(AddNewComponent, {
   onRedirecting: () => <Loading />,
 });
+
+/*
+<Row>
+  <Col
+    sm={{ size: 5, offset: 1 }}
+    md={{ size: 6, offset: 2 }}
+  >
+    <CoffeeName />
+  </Col>
+  <Col sm={"4"} md={"2"}>
+    <RoastInput />
+  </Col>
+</Row>
+<Row>
+  <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
+    
+  </Col>
+</Row>
+<Row>
+  <Col
+    sm={{ size: 5, offset: 1 }}
+    md={{ size: 6, offset: 2 }}
+  >
+    <AmountPurchasedInput />
+  </Col>
+  <Col sm={"4"} md={"2"}>
+    <SelectUnitInput />
+  </Col>
+</Row>
+*/

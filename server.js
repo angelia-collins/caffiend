@@ -2,6 +2,8 @@
 // *** Dependencies
 require("dotenv").config("");
 const express = require("express");
+const routes = require("./routes");
+var cors = require('cors');
 
 // Sets up the Express App
 // =============================================================
@@ -14,6 +16,7 @@ const db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -37,7 +40,3 @@ db.sequelize.sync({ force: true }).then(() => {
     );
   });
 });
-
-
-
-
