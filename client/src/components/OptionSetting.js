@@ -5,12 +5,13 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Input,
   Label,
   Form,
 } from "reactstrap";
 import AddButton from "./AddButton";
-
+import CoffeeName from "./CoffeeName";
+import SelectMonth from "./OptionInputs/SelectMonth";
+import AllotmentInput from "./OptionInputs/AllotmentInput";
 
 const OptionSetting = (props) => {
   const { buttonLabel, className } = props;
@@ -26,6 +27,33 @@ const OptionSetting = (props) => {
       value = JSON.parse(value);
     }
     setBackdrop(value);
+  };
+
+  const CustomTextInput = (num) => {
+    for (let i = 0; i < props.options.length; i++) {
+      switch (props.options[num]) {
+        case "select month:":
+          return <SelectMonth />;
+          break;
+        case "input allotment":
+          return <AllotmentInput />;
+          break;
+        case "delete brand":
+          return <CoffeeName />;
+          break;
+        case "set alerts":
+          return (
+            <input
+              className="form-control"
+              type="text"
+              placeholder="availbale in next update"
+              disabled
+            />
+          );
+          break;
+        default:
+      }
+    }
   };
 
   return (
@@ -49,27 +77,15 @@ const OptionSetting = (props) => {
         className={className}
         backdrop={backdrop}
         keyboard={keyboard}
+        style={{marginTop: "15vh"}}
       >
         <ModalHeader toggle={toggle}>{props.title}</ModalHeader>
         <ModalBody>
-          <Label /> {props.option1}
-          <Input
-            type="select"
-            name="backdrop"
-            id="backdrop"
-            onChange={changeBackdrop}
-          >
-            <option value="january">January</option>
-            <option value="feburary">February</option>
-            <option value="march">March</option>
-          </Input>
-          <Label /> {props.option2}
-          <Input
-            type="curency"
-            name="allocated_amount"
-            id="exampleEmail"
-            placeholder="$"
-          />
+          <Label /> {props.options[0]}
+          {CustomTextInput(0)}
+          <Label /> {props.options[1]}
+          {CustomTextInput(1)}
+          {console.log(props.input1)}
         </ModalBody>
 
         <ModalFooter>

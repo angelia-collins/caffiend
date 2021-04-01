@@ -1,9 +1,10 @@
 import React from "react";
-import { InputGroup, Input, InputGroupAddon, Button } from "reactstrap";
+import { InputGroup, InputGroupAddon, Button, Input, Label } from "reactstrap";
 
 const PriceInput = (props) => {
   return (
     <div>
+      <Label style={{ fontSize: "16px" }}> price: </Label>
       <InputGroup>
         <Input placeholder="Price" onChange={ (e) => props.handlePrice(e.target.value) }/>
         <InputGroupAddon addonType="append">
@@ -15,4 +16,3 @@ const PriceInput = (props) => {
 };
 
 export default PriceInput;
-  

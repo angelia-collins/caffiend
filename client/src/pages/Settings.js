@@ -3,37 +3,22 @@ import { Container, Row, Col } from "reactstrap";
 import Loading from "../components/Loading";
 import Header from "../components/Header/Header";
 import OptionSetting from "../components/OptionSetting";
-import {Input} from 'reactstrap';
-// import CoffeeName from "../components/CoffeeName";
-// import AmountInput from "../components/AmountInput";
-// import AddButton from "../components/AddButton";
-// import ResetButton from "../components/ResetButton";
-// import PriceInput from "../components/PriceInput";
+
+
 
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 const data = [
   {
-    title: "BUDGET OPTIONS",
-    option1: "SELECT MONTH:",
-    input1: () => {
-        return (
-         
-            <Input
-          type="curency"
-          name="allocated_amount"
-          id="exampleEmail"
-          placeholder="$" />
-        
-        );
-    },
-    option2: "INPUT ALLOTMENT",
+    title: "budget options",
+    options: ["select month:", "input allotment"],
+    inputType: 1,
   },
   {
-    title: "MANAGE INVENTROY",
-    option1: "REMOVE BRAND FROM INVENTORY"
+    title: "manage inventory",
+    options: ["delete brand"],
   },
-  { title: "CONTROL CONSUMPTION", option1: "", option2: "" },
+  { title: "control consumption", options: ["set alerts"] },
 ];
 
 export const AppendSettingsPage = () => {
@@ -41,7 +26,7 @@ export const AppendSettingsPage = () => {
     <Container>
       <Row>
         <Col>
-          <Header>SETTINGS</Header>
+          <Header>settings</Header>
         </Col>
       </Row>
       {data.map((info) => (
@@ -57,3 +42,11 @@ export const AppendSettingsPage = () => {
 export default withAuthenticationRequired(AppendSettingsPage, {
   onRedirecting: () => <Loading />,
 });
+
+
+// <Input
+// type="curency"
+// name="allocated_amount"
+// id="exampleEmail"
+// placeholder="$"
+// />

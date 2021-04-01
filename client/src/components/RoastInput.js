@@ -1,21 +1,40 @@
 import React from "react";
-import {Form, FormGroup, Input} from "reactstrap";
+import {Form, FormGroup, Input, Label} from "reactstrap";
+const axios = require('axios');
+// TOOD import data as an api reciving data from SQL
 
-const RoastInput = (props) => {
+const RoastInput = () => {
+const data = axios.get('/coffee', {
+  params: {
+    roast_type: ""
+  }
+})
+.then(function (response) {
+  console.log(response);
+})
+.catch(function (error) {
+  console.log(error);
+})
+.then(function () {
+  // always executed
+});  
+
   return (
     <Form>
+      <Label style={{fontSize:"16px"}}> type of roast: </Label>
       <FormGroup>
         <Input
-          placeholder="Coffee Brand"
           type="select"
           name="select"
           id="exampleSelect"
         >
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+           {/* {data.map((info) => {
+            <option>{...info}</option>
+          })} */}
+          <option select>choose</option>
+          <option>other</option>
+          <option>oree</option>
+          <option>otrerearher</option>
         </Input>
       </FormGroup>
     </Form>
@@ -23,3 +42,4 @@ const RoastInput = (props) => {
 };
 
 export default RoastInput;
+

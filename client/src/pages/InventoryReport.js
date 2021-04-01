@@ -16,6 +16,7 @@ export const AppendBudgetReport = () => {
       </Row>
       <Row className="mt-4">
         <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}></Col>
+        <BarChart />
       </Row>
     </Container>
   );
