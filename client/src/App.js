@@ -34,12 +34,13 @@ const App = () => {
     return <Loading />;
   }
   return (
+
     <Router history={history}>
-      <div id="app" className="d-flex flex-column h-100">
+      <div id="app" className="d-lg-flex flex-column backgroundImage">
         <NavBar />
-        <Container className="flex-grow-1 mt-5">
-          <Switch>
-            <Route path="/" exact component={Home} />
+        <Container    className="flex-grow-1 mt-5 ">
+          <Switch >
+            <Route path={["/", "/home"]} exact component={Home} />
             <Route path="/add-new" component={AddNew} />
             <Route path="/profile" component={Profile} />
             <Route path="/settings" component={Settings} />

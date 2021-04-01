@@ -1,6 +1,5 @@
-/*
 const db = require("../models");
-const Tutorial = db.tutorials;
+const Budget = db.budget;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Tutorial
@@ -37,4 +36,3 @@ exports.deleteAll = (req, res) => {
 exports.findAllPublished = (req, res) => {
   
 };
-*/

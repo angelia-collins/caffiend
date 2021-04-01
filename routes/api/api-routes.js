@@ -1,5 +1,10 @@
+<<<<<<< HEAD:routes/api-routes.js
+
+const db = require("../../models");
+=======
 const db = require("../models");
 const router = require("express").Router();
+>>>>>>> 73138e27dc23ab06e4802f41fededdf43f8a9f04:routes/api/api-routes.js
 
 module.exports = function (app) {
   //  BUDGET ROUTES
@@ -32,24 +37,24 @@ module.exports = function (app) {
   //  CONSUMPTION ROUTES
   // =====================================================
   app.get("/api/consumption", (req, res) => {
-    db.Consumption_stats.findAll().then(
-      (dbConsumption) => {
-        res.json(dbConsumption);
-      }
-    );
+    db.Consumption_stats.findAll().then((dbConsumption) => {
+      res.json(dbConsumption);
+    });
   });
   //  INVENTORY ROUTES
   // =====================================================
   app.get("/api/inventory", (req, res) => {
     db.Coffee.findAll({
-      include: [db.Consumption_stats, db.Purchase_stats],
+      include: [db.Purchase_stats, db.Consumption_stats],
     }).then((dbInventory) => {
       res.json(dbInventory);
     });
   });
   app.post("/api/inventory", (req, res) => {
     db.Coffee.create(
-      { include: [db.Consumption_stats, db.Purchase_stats] },
+      {
+        include: [db.Purchase_stats, db.Consumption_stats],
+      },
       req.body
     ).then((dbInventory) => {
       res.json(dbInventory);
@@ -77,7 +82,7 @@ module.exports = function (app) {
       res.json(dbInventory);
     });
   });
-// TODO check to ensur that DELETE route doesn't mess up consumtption report 
+  // TODO check to ensur that DELETE route doesn't mess up consumtption report
   app.delete("/api/inventory/:id", ({ params }, res) => {
     db.Coffee.destroy(
       { incldue: [db.Consumption_stats, db.Purchase_stats] },

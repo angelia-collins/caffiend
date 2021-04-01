@@ -21,7 +21,7 @@ export const ProfileComponent = () => {
       <Row>
         <Col style={{ textAlign: "center" }}>
           <h2>
-            Welcome <br />
+            welcome <br />
             {user.name}
           </h2>
           <p className="lead text-muted">{user.email}</p>
