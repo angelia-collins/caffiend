@@ -31,7 +31,7 @@ const data = axios.get('/coffee', {
            {/* {data.map((info) => {
             <option>{...info}</option>
           })} */}
-          <option select>select roast type</option>
+          <option select>choose</option>
           <option>other</option>
           <option>oree</option>
           <option>otrerearher</option>
