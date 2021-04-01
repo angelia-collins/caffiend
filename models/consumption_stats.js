@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Consumption_stats = sequelize.define("Consumption_stats", {
+  const Consumption_stats = sequelize.define("Consumption_stats", {
     date_of_consumption: {
       type: DataTypes.DATEONLY,
       allowNull: true,

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Budget = sequelize.define("Budget", {
+    const Budget = sequelize.define("Budget", {
       month: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -21,12 +21,5 @@ module.exports = function (sequelize, DataTypes) {
     // },
       
     });
-  
-    // Coffee.associate = function (models) {
-    //   Coffee.hasMany(models.Stats, {
-    //     onDelete: "cascade",
-    //   });
-    // };
-  
     return Budget;
   };

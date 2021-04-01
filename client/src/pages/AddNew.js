@@ -3,43 +3,76 @@ import { Container, Row, Col } from "reactstrap";
 import Loading from "../components/Loading";
 import Header from "../components/Header/Header";
 import CoffeeName from "../components/CoffeeName";
-// import RoastInput from '../components/RoastInput';
-import AmountInput from "../components/AmountInput";
+import RoastInput from "../components/RoastInput";
+import AmountPurchasedInput from "../components/AmountPurchasedInput";
 import AddButton from "../components/AddButton";
 import ResetButton from "../components/ResetButton";
 import PriceInput from "../components/PriceInput";
-
+import Axios from "axios";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 export const AddNewComponent = () => {
+  // const postToInventory = (e) => {
+  //   e.preventDefault();
+  //   Axios.post('/inventory', {
+  //     brand: '',
+  //     lastName: '',
+  //     purchase_weight: '',
+  //     purchase_price:  '',
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //   }, (error) => {
+  //     console.log(error);
+  //   });
+  // };
+
+  // function postToInventory(e) {
+  //   e.preventDefault();
+  //   let total = $('#total').val();
+  //   $.ajax({
+  //     method: "Post",
+  //     url: `/api/inventory/${total}`,
+  //   })
+
   return (
     <Container>
       <Row>
         <Col>
-          <Header>STOCK INVENTORY</Header>
+          <Header>stock inventory</Header>
         </Col>
       </Row>
-      <Row className="mt-4">
-      <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }} >
+      <Row>
+        <Col
+          sm={{ size: 5, offset: 1 }}
+          md={{ size: 5, offset: 2 }}
+        >
           <CoffeeName />
         </Col>
-      </Row>
-      <Row className="mt-2">
-      <Col sm={{ size: 8, offset: 2 }}md={{ size: 8, offset: 2 }} >
-          <AmountInput placeholder={"Coffee Brand"} />
+        <Col sm={"4"} md={"3"}>
+          <RoastInput />
         </Col>
       </Row>
-      <Row className="mt-2">
-      <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }} >
+      <Row>
+        <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
+          <AmountPurchasedInput />
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <PriceInput />
         </Col>
       </Row>
-      <Row className="mt-2">
-        <Col xs={{ size: 6, offset: 1 }} sm={{ size: 3, offset: 3 }} md={{ size: 2, offset: 4 }}>
-          <AddButton text={"+ ADD"}/>
+      <Row className="mt-4">
+        <Col
+          xs={{ size: 6, offset: 1 }}
+          sm={{ size: 3, offset: 3 }}
+          md={{ size: 2, offset: 4 }}
+        >
+          <AddButton  text={"+ ADD"} />
         </Col>
-        <Col xs={"5"} sm={{ size: 2}} md={{ size: 2}}>
-          <ResetButton />
+        <Col xs={"5"} sm={{ size: 2 }} md={{ size: 2 }}>
+          <ResetButton  />
         </Col>
       </Row>
     </Container>

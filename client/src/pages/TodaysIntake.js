@@ -3,30 +3,64 @@ import { Container, Row, Col } from "reactstrap";
 import Loading from "../components/Loading";
 import Header from "../components/Header/Header.js";
 import CoffeeName from "../components/CoffeeName";
-import AmountInput from "../components/AmountInput";
+import AmountUsedInput from "../components/AmountUsedInput";
 import AddButton from "../components/AddButton";
 import ResetButton from "../components/ResetButton";
 
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 export const TodaysIntakeComponent = () => {
-  let newDate = new Date();
-  let date = newDate.getDate();
-  let month = newDate.getMonth() + 1;
-  let year = newDate.getFullYear();
+  // const [data, setData] = useState([])
+  // const [formData, setFormData] = useState('')
+
+  
+  // const fetchGames = () => {
+  //   fetch('http://localhost:3000/api/inventory', {
+  //     method: 'GET',
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => setData(result.rows))
+  //     .catch((err) => console.log('error'))
+  // }
+
+  // const handleAdd = () => {
+  //   Array.from(document.querySelectorAll(["input", "select"])).forEach(
+  //     (input) => (
+        
+  //         // TODO prefrom post request 
+  //     ))}
+
+  //     const saveConsumption = () => {
+  //       fetch('http://localhost:3000/inventory', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify({
+  //           brand: formData,
+  //           amount_consumed: formData, // Use your own property name / key
+  //         }),
+  //       })
+  //         .then((res) => res.json())
+  //         .then((result) => setData(result.rows))
+  //         .catch((err) => console.log('error'))
+  //     }
+          
+        
+
+
 
   return (
     <Container>
       <Row>
         <Col>
-          <Header>RECORD SERVING</Header>
+          <Header>record serving</Header>
         </Col>
       </Row>
       <Row>
-        <Col>
-          <p className="text-center">
-            {month}/{date}/{year}
-          </p>
+        <Col style={{textAlign: "center"}}>
+        {new Date().toLocaleDateString()}
+        {console.dir(new Date())}
         </Col>
       </Row>
       <Row>
@@ -34,9 +68,9 @@ export const TodaysIntakeComponent = () => {
           <CoffeeName />
         </Col>
       </Row>
-      <Row className="mt-4">
+      <Row className="mt-3">
         <Col sm={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
-          <AmountInput />
+          <AmountUsedInput />
         </Col>
       </Row>
       <Row className="mt-4">
@@ -45,7 +79,7 @@ export const TodaysIntakeComponent = () => {
           sm={{ size: 3, offset: 3 }}
           md={{ size: 2, offset: 4 }}
         >
-          <AddButton text={"+ ADD"} />
+          <AddButton  text={"+ ADD"} />
         </Col>
         <Col xs={"5"} sm={{ size: 2 }} md={{ size: 2 }}>
           <ResetButton />
